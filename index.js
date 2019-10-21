@@ -11,7 +11,7 @@ const port = 3000
 
 app.use(authorizationMiddleware)
 
-app.get('/get-user', (req, res) => {
+app.post('/get-user', (req, res) => {
     const user = getRandomUser();
     res.send({...user})
 });
