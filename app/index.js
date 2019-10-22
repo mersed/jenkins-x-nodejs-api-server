@@ -1,3 +1,6 @@
+// Setting up configuration directory
+process.env['NODE_CONFIG_DIR'] = __dirname + "/config";
+
 // importing legacy modules
 const express = require('express')
 const bodyParser = require('body-parser')
