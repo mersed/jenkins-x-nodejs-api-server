@@ -16,7 +16,7 @@ const port = 3000
 app.use(
     bodyParser.json({
         limit: '50mb',
-        verify: (req, res, buf, enconding) => {
+        verify: (req, res, buf, encoding) => {
             if(buf && buf.length) {
                 req.rawBody = buf.toString(encoding || 'utf8')
             }
@@ -27,7 +27,7 @@ app.use(authorizationMiddleware)
 
 app.post('/get-user', (req, res) => {
     const user = getRandomUser();
-    res.send({...user})
+    res.send({success: true, user: {...user}})
 });
 
 app.listen(port, () => {
