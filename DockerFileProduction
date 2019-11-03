@@ -1,0 +1,11 @@
+FROM node:11.10.0-alpine
+RUN export NODE_ENV=development
+
+WORKDIR /opt/jenkins-x-nodejs-api-server
+COPY package.json /opt/jenkins-x-nodejs-api-server
+RUN npm config set package-lock false
+RUN npm install
+COPY app /opt/jenkins-x-nodejs-api-server/app
+
+EXPOSE 80
+CMD ["node", "app/index.js"]
